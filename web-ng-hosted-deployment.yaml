@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nosonic-web
+  labels:
+    app: web-ng-hosted
+spec:
+  selector:
+    matchLabels:
+      app: web-ng-hosted
+      tier: web-frontend
+  template:
+    metadata:
+      labels:
+        app: web-ng-hosted
+        tier: web-frontend
+    spec:
+      containers:
+      - name:  web-ng-hosted-container
+        image: gcr.io/nocsonic-1165/will-simple-ng:latest
+        ports:
+        - containerPort: 5555
